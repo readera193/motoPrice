@@ -2,15 +2,59 @@
 
 <html>
 
-<head></head>
+<head>
+    <link href="{{ url_for('static', filename ='css/bootstrap.min.css') }}" rel="stylesheet">
+    <style>
+        .custom-width {
+            max-width: 1630px;
+        }
+        .table td.vertical-middle {
+            vertical-align: middle;
+        }
+    </style>
+</head>
 
 <body>
-<!-- TODO: 完成正確 route -->
-<a href="/location">燃油車維修地點</a>
-<a href="/location">GOGORO維修地點</a>
-<a href="/location">GOGORO換電地點</a>
+    {% macro makeTable(tableName, locations) %}
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr class="text-center">
+                <th scope="col">{{ tableName }}</th>
+                <th scope="col">Google Map</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for location in locations %}
+            <tr>
+                <td class="vertical-middle">
+                    {{ location }}
+                </td>
+                <td class="text-center">
+                    <a class="btn btn-primary" href="{{ 'https://www.google.com.tw/maps/search/'+location }}"
+                        role="button" target="_blank">連結</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endmacro %}
 
+    <div class="container custom-width">
+        <div class="row justify-content-center py-3">
+            <div class="h3">全台機車維修/換電地點</div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                {{ makeTable("燃油車維修地點", fuelCar) }}
+            </div>
+            <div class="col-sm">
+                {{ makeTable("GOGORO 維修地點", gogoroRepair) }}
+            </div>
+            <div class="col-sm">
+                {{ makeTable("GOGORO 換電地點", gogoroReplacement) }}
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
-
