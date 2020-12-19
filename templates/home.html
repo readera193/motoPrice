@@ -1,2 +1,23 @@
-<h1>Hello World!</h1>
-<a href="/location">Location</a>
+<head>
+    <link href="{{ url_for('static', filename ='css/bootstrap.min.css') }}" rel="stylesheet">
+    <style>
+        .custom-width {
+            max-width: 1630px;
+        }
+        .table td.vertical-middle {
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+<center>
+    <h1>機車時價登錄系統</h1><br>
+    <img src="{{ url_for('static', filename ='img/moto.png') }}" width='256px' class="rounded mx-auto d-block"></img><br>
+    <a type="button" class="btn btn-outline-primary" href="/fixPrice">各零件&維修行情價</a>
+    <a type="button" class="btn btn-outline-primary" href="/location">全台機車維修&換電地點</a>
+    <a type="button" class="btn btn-outline-primary" href="/motoType">機車車種比較</a>
+    <a type="button" class="btn btn-outline-primary" href="/chatRoom">購車&經驗分享區</a>
+    <a type="button" class="btn btn-outline-primary" href="/statistic">統計資料</a>
+</center>
+</body>
