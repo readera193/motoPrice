@@ -7,6 +7,6 @@ def location():
     gogoroRepair = ["高雄市三民區建工路415號", "高雄市燕巢區深中路58號"]
     # GOGORO 換電地點
     gogoroReplacement = ["高雄市三民區建工路415號", "高雄市燕巢區深中路58號"]
-    return render_template("location/location.html", fuelCar=fuelCar,
+    return render_template("location.html", fuelCar=fuelCar,
             gogoroRepair=gogoroRepair, gogoroReplacement=gogoroReplacement)
 
