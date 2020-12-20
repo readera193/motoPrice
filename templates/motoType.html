@@ -1,0 +1,33 @@
+<title>motoType</title>
+<table border=1>
+	<colgroup>
+    <col style="background-color: #0f0">
+    <col span="2">
+    <col style="background-color: #0a0">
+    <col span="3">
+    </colgroup>
+    <form action="/statistic" method="POST">
+        <tr>
+            <td>機型介紹（cc）</td>
+			<td>機型品牌</td>
+            <td>一年平均维修價格</td>
+            <td>維修零件</td>
+            <td>平均维修價格</td>
+        {% for data in datatext %}
+            <tr>
+                <td>{{data[0]}}</td>
+                <td>{{data[1]}}</td>
+                <td>{{data[2]}}</td>
+				<td>{{data[3]}}</td>
+				<td>{{data[4]}}</td>
+            </tr>
+        {% endfor %}
+        <tr>
+        </tr>
+    </form>
+</table>
+
+
+
+
+

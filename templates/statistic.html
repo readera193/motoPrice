@@ -1,0 +1,23 @@
+<title>statistic</title>
+<table border=1>
+	<colgroup>
+    <col style="background-color: #0f0">
+    <col span="2">
+    </colgroup>
+    <form action="/statistic" method="POST">
+        <tr>
+            <td>性別</td>
+            <td>區域</td>
+            <td>使用頻率</td>
+        {% for data in datatext %}
+            <tr>
+                <td>{{data[0]}}</td>
+                <td>{{data[1]}}</td>
+                <td>{{data[2]}}</td>
+            </tr>
+        {% endfor %}
+        <tr>
+        </tr>
+    </form>
+</table>
+
