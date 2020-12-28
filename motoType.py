@@ -1,10 +1,17 @@
 from flask import Flask,render_template,request
-
+import sqlite3
 
 def motoType():
-    datatext = [['普通重型機車51cc~250cc', 'SYM', '3000~未滿4000元', '鏈條', '2000'],
-['普通重型機車51cc~250cc', 'KYMCO', '2000~未滿3000元', '馬達', '3000'],
-['普通重型機車51cc~250cc', 'KYMCO', '2000~未滿3000元','電瓶', '900'],
-['普通重型機車51cc~250cc', 'PGO',  '3000~未滿4000元', '鏈條', '800'],
-['普通重型機車51cc~250cc', 'PGO',  '3000~未滿4000元', '電瓶', '700']]
+    datatext =con_sql()
     return render_template('motoType.html',datatext=datatext)
+
+def con_sql():
+    conn = sqlite3.connect('motoPrice.db')
+    cursor = conn.cursor()
+    cursor.execute("select * from prices;")
+    values = cursor.fetchall()
+    cursor.close()
+    conn.close()
+    return values
+    
+w=con_sql()
