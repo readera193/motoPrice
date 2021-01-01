@@ -1,4 +1,5 @@
 <title>motoType</title>
+
 <table border=1>
 	<colgroup>
     <col style="background-color: #0f0">
@@ -6,13 +7,34 @@
     <col style="background-color: #0a0">
     <col span="3">
     </colgroup>
-    <form action="/statistic" method="POST">
+    <form action="/motoType" method="POST">
         <tr>
             <td>機型介紹（cc）</td>
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">機型介紹（cc）</label>
+                <select class="form-control" name='scooter_name'>
+				  <option value=%>no choose</option>
+					{% for key in scooter %}
+					<option>{{key}}</option>
+					{% endfor %}               
+				</select>
+              </div>
 			<td>機型品牌</td>
+			<div class="form-group">
+                <label for="exampleFormControlSelect2">機型品牌</label>
+                <select class="form-control"  name='model_brand_name'>
+				  <option value=%>no choose</option>
+					{% for key in model_brand %}
+					<option>{{key}}</option>
+					{% endfor %}               
+				</select>
+              </div>
             <td>一年平均维修價格</td>
             <td>維修零件</td>
             <td>平均维修價格</td>
+			<td>維修零件</td>
+            <td>平均维修價格</td>
+			<input type='submit'>
         {% for data in datatext %}
             <tr>
                 <td>{{data[0]}}</td>
@@ -20,13 +42,14 @@
                 <td>{{data[2]}}</td>
 				<td>{{data[3]}}</td>
 				<td>{{data[4]}}</td>
+				<td>{{data[5]}}</td>
+				<td>{{data[6]}}</td>
             </tr>
         {% endfor %}
         <tr>
         </tr>
     </form>
 </table>
-
 
 
 

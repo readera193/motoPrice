@@ -25,4 +25,14 @@ def statistic_function():
     return statistic()
 @app.route("/motoType",methods=["GET","POST"])
 def motoType_function():
-    return motoType()
+    scooter = '%'
+    model_brand='%'
+    Components=0
+    if request.method == "POST":
+        scooter=request.values.get("scooter_name", '%')
+        print(scooter)
+        model_brand=request.values.get("model_brand_name", '%')
+        print(model_brand)
+        return motoType(scooter,model_brand,Components)
+    
+    return motoType(scooter,model_brand,Components)
