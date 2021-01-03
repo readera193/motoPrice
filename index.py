@@ -14,6 +14,10 @@ def home():
 def location_function():
     return location()
 
+@app.route("/map")
+def map_function():
+    return render_template("map.html")
+
 @app.route("/fixPrice")
 def fixPrice_function():
     return fixPrice()
