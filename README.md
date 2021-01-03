@@ -11,7 +11,10 @@
 ![機車零件價格查詢](/docs/searchPrice.jpg)
 
 ## 全台機車維修/換電地點
-![全台機車維修/換電地點](/docs/location.jpg)
+地圖版
+![全台機車維修/換電地點(地圖版)](/docs/map.jpg)
+表格版
+![全台機車維修/換電地點(表格版)](/docs/location.jpg)
 
 ## 機車車種比較
 ![統計資料](/docs/motoType.jpg)
