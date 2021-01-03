@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link href="{{ url_for('static', filename ='css/bootstrap.min.css') }}" rel="stylesheet">
+    <style>
+        .custom-width {
+            max-width: 1630px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container custom-width">
+        <div class="row justify-content-center py-3">
+            <a class="d-inline mx-3 btn btn-primary" href="/" role="button">首頁</a>
+            <a class="d-inline mx-3 btn btn-primary" href="/location" role="button">表格版</a>
+        </div>
+        <div class="row justify-content-center pb-3">
+            <div class="h3">全台機車維修/換電地點(地圖版)</div>
+        </div>
+        <div class="embed-responsive embed-responsive-3by4 mb-3">
+            <iframe class="embed-responsive-item"
+                src="https://www.google.com/maps/d/u/0/embed?mid=1T5BitrEzut8T9Gj6-qw6xmErwfYPsKXn"></iframe>
+        </div>
+    </div>
+</body>
+
+</html>
