@@ -1,6 +1,7 @@
 from flask import Flask,render_template,request
 import sqlite3
 from time import strftime,localtime
+import sqlite3
 
 sex_list=[]
 location_list=[]
