@@ -22,7 +22,15 @@ def chatRoom_function():
     return chatRoom()
 @app.route("/statistic",methods=["GET","POST"])
 def statistic_function():
-    return statistic()
+    sex = '%'
+    location='%'
+    if request.method == "POST":
+        sex=request.values.get("sex_name", '%')
+        
+        location=request.values.get("location_name", '%')
+        return statistic(sex,location)
+    
+    return statistic(sex,location)
 @app.route("/motoType",methods=["GET","POST"])
 def motoType_function():
     scooter = '%'
@@ -30,9 +38,7 @@ def motoType_function():
     Components=0
     if request.method == "POST":
         scooter=request.values.get("scooter_name", '%')
-        print(scooter)
         model_brand=request.values.get("model_brand_name", '%')
-        print(model_brand)
         return motoType(scooter,model_brand,Components)
     
     return motoType(scooter,model_brand,Components)
