@@ -6,6 +6,7 @@ from statistic import statistic
 from motoType import motoType
 app = Flask(__name__)
 
+
 @app.route("/")
 def home():
     return render_template("home.html")
