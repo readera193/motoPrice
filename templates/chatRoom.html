@@ -1,17 +1,17 @@
 <title>購車&經驗分享區</title>
 <table border=1>
         <tr>
+            <td>時間</td>
             <td>使用者名稱</td>
             <td>性別</td>
-            <td>時間</td>
             <td>留言</td>
             <td>人氣</td>
         {% for data in msg %}
             <form action="/chatRoom" method="POST">
                 <tr>
+                    <td><input type="hidden" name="timeHis" value={{data[2]}}>{{data[2]}}</td>
                     <td><input type="hidden" name="userNameHis" value={{data[0]}}>{{data[0]}}</td>
                     <td><input type="hidden" name="sexHis" value={{data[1]}}>{{data[1]}}</td>    
-                    <td><input type="hidden" name="timeHis" value={{data[2]}}>{{data[2]}}</td>
                     <td><input type="hidden" name="commandHis" value={{data[3]}}>{{data[3]}}</td>
                     <td><input type="submit" name="submit" value={{data[4]}}></td>
                 </tr>
@@ -20,9 +20,10 @@
         <tr>
         </tr>
     <form action="/chatRoom" method="POST">
-        <td><input type= "text" name= "userName" ></td>
-        <td><input type= "text" name= "sex" ></td>
-        <td><input type= "text" name= "command"></td>
+        <td></td>
+        <td><input type= "text" name= "userName" required></td>
+        <td><input type= "text" name= "sex" required></td>
+        <td><input type= "text" name= "command" required></td>
         <td><input type= "submit" name= "submit" value="送出留言"></td>
     </form>
 </table>
