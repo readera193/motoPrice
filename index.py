@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from location import location
-from price import fixPrice
+from price import getPrice, test
 from chatRoom import chatRoom
 from statistic import statistic
 from motoType import motoType
@@ -22,9 +22,12 @@ def map_function():
     return render_template("map.html")
 
 
-@app.route("/fixPrice")
+@app.route("/fixPrice", methods=["POST", "GET"])
 def fixPrice_function():
-    return fixPrice()
+    if not request.form.get("itemName"):
+        return test('')
+    else:
+        return test(request.form["itemName"])
 
 
 @app.route("/chatRoom", methods=["GET", "POST"])
