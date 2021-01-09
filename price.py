@@ -1,7 +1,3 @@
-import grequests
-import gevent
-from gevent import monkey as curious_george
-curious_george.patch_all(thread=False, select=False)
 import requests
 from flask import Flask, render_template, request
 from aiohttp import ClientSession
@@ -48,15 +44,16 @@ class PriceData(object):
 #print(response.text)
 
 def getItemPrice(pages, itemName):
+
     links = list()  # 請求網址清單(1-pages頁的網址)
     content = []
     for page in range(1, pages):
         links.append("https://www.findprice.com.tw/g/{}/?i={}".format(itemName, str(page)))
 
-    reqs = (grequests.get(link) for link in links)  # 建立請求集合
-    response = grequests.imap(reqs, grequests.Pool(2))  # 發送請求
+    reqs = (requests.get(link) for link in links)  # 建立請求集合
+    #response = grequests.imap(reqs, grequests.Pool(2))  # 發送請求
 
-    for r in response:
+    for r in reqs:
        soup = BeautifulSoup(r.content, "html.parser")  # 解析HTML原始碼
 
        products = soup.find_all("a", {"class": "ga"} )
